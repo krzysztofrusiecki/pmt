@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Button } from "$lib/components/atoms";
 	import type { LayoutData } from "./$types";
 
 	export let data: LayoutData;
@@ -9,7 +10,7 @@
 <div class="px-12 h-16 flex justify-end items-center">
 	<div class="mr-4">{fullName}</div>
 	<form method="POST" action="/app?/logout">
-		<button type="submit" class="bg-gray-300 px-4 py-1">Logout</button>
+		<Button type="submit" label="Logout" variant="tertiary" size="large" />
 	</form>
 </div>
 <slot />
