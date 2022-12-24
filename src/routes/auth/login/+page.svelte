@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Button } from "$lib/components/atoms";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
@@ -28,7 +29,7 @@
 					{/each}
 				{/if}
 			</label>
-			<button type="submit" class="bg-blue-500 px-4 py-1">Login</button>
+			<Button type="submit" label="Login" variant="primary" size="large" fullWidth />
 		</form>
 	</div>
 </div>
