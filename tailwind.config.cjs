@@ -35,13 +35,13 @@ module.exports = {
 			medium: "5px",
 			large: "8px",
 		},
-		extend: {
-			fontSize: {
-				sm: ["12px", "16px"],
-				base: ["14px", "19px"],
-				lg: ["18px", "24px"],
-				xl: ["24px", "32px"],
-			},
+		fontSize: {
+			sm: "12px",
+			base: "14px",
+			lg: "18px",
+			xl: "24px",
+			"2xl": "28px",
+			"3xl": "36px",
 		},
 	},
 	plugins: [],
