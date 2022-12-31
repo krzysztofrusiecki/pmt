@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button, TextInput } from "$lib/components/atoms";
+	import { Button, Text, TextInput } from "$lib/components/atoms";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
@@ -8,7 +8,7 @@
 </script>
 
 <div class="h-screen flex flex-col items-center justify-center">
-	<h1>Login</h1>
+	<Text variant="h1">Login</Text>
 	<div>
 		<form method="POST" action="?/login" class="flex flex-col items-center justify-center">
 			<label for="email" class="flex flex-col">
