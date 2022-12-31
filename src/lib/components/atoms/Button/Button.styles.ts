@@ -20,6 +20,11 @@ export const styles = {
 					true: "w-full",
 				},
 			},
+			defaultVariants: {
+				variant: "primary",
+				size: "medium",
+				fullWidth: false,
+			},
 		},
 	),
 };
