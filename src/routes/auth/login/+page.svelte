@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Button } from "$lib/components/atoms";
+	import { Button, TextInput } from "$lib/components/atoms";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
@@ -13,7 +13,13 @@
 		<form method="POST" action="?/login" class="flex flex-col items-center justify-center">
 			<label for="email" class="flex flex-col">
 				Email
-				<input class="border-[1px] border-gray-200" name="email" value={form?.data?.email ?? ""} />
+				<TextInput
+					name="email"
+					type="email"
+					size="large"
+					value={form?.data?.email ?? ""}
+					showError={Boolean(fieldErrors?.email?.length)}
+				/>
 				{#if fieldErrors?.email?.length && fieldErrors?.email?.length > 0}
 					{#each fieldErrors?.email as error}
 						<div class="text-red-500 mb-1">{error}</div>
@@ -22,7 +28,13 @@
 			</label>
 			<label for="password" class="flex flex-col">
 				Password
-				<input class="border-[1px] border-gray-200" type="password" name="password" />
+				<TextInput
+					name="password"
+					type="password"
+					size="large"
+					value={form?.data?.password ?? ""}
+					showError={Boolean(fieldErrors?.password?.length)}
+				/>
 				{#if fieldErrors?.password?.length && fieldErrors?.password?.length > 0}
 					{#each fieldErrors?.password as error}
 						<div class="text-red-500 mb-1">{error}</div>
