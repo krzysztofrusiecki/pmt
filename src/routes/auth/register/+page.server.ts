@@ -1,5 +1,6 @@
 import { validateData } from "$lib/utils/validateData";
 import { error, fail, redirect } from "@sveltejs/kit";
+import { ClientResponseError } from "pocketbase";
 import type { Actions } from "./$types";
 import { schema } from "./register.schema";
 
@@ -19,6 +20,12 @@ export const actions: Actions = {
 				...data,
 			});
 		} catch (err) {
+			if (err instanceof ClientResponseError) {
+				if (err.data.data.email.code === "validation_invalid_email") {
+					throw error(400, "User with this email already exists");
+				}
+				throw error(400, "Failed to register new user");
+			}
 			throw error(500, "Something went wrong");
 		}
 

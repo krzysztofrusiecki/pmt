@@ -3,8 +3,8 @@
 
 	export let type: "text" | "email" | "password" = "text";
 	export let placeholder = "";
-	export let value = "";
-	export let name = "";
+	export let value: string;
+	export let name: string;
 	export let size: "small" | "medium" | "large" = "medium";
 	export let showError = false;
 	export let disabled = false;
