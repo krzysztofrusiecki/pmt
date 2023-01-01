@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { enhance } from "$app/forms";
 	import { Button, Text, TextInput } from "$lib/components/atoms";
+	import { FormGroup } from "$lib/components/molecules";
+	import toast from "svelte-french-toast";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
@@ -9,39 +12,43 @@
 
 <div class="h-screen flex flex-col items-center justify-center">
 	<Text variant="h1">Login</Text>
-	<div>
-		<form method="POST" action="?/login" class="flex flex-col items-center justify-center">
-			<label for="email" class="flex flex-col">
-				Email
-				<TextInput
-					name="email"
-					type="email"
-					size="large"
-					value={form?.data?.email ?? ""}
-					showError={Boolean(fieldErrors?.email?.length)}
-				/>
-				{#if fieldErrors?.email?.length && fieldErrors?.email?.length > 0}
-					{#each fieldErrors?.email as error}
-						<div class="text-red-500 mb-1">{error}</div>
-					{/each}
-				{/if}
-			</label>
-			<label for="password" class="flex flex-col">
-				Password
-				<TextInput
-					name="password"
-					type="password"
-					size="large"
-					value={form?.data?.password ?? ""}
-					showError={Boolean(fieldErrors?.password?.length)}
-				/>
-				{#if fieldErrors?.password?.length && fieldErrors?.password?.length > 0}
-					{#each fieldErrors?.password as error}
-						<div class="text-red-500 mb-1">{error}</div>
-					{/each}
-				{/if}
-			</label>
-			<Button type="submit" label="Login" variant="primary" size="large" fullWidth />
-		</form>
-	</div>
+	<form
+		method="POST"
+		action="?/login"
+		class="flex flex-col items-center justify-center"
+		use:enhance={() => {
+			return async ({ result, update }) => {
+				switch (result.type) {
+					case "success":
+						await update();
+						break;
+					case "error":
+						toast.error(result.error.message);
+						break;
+					default:
+						await update();
+				}
+			};
+		}}
+	>
+		<FormGroup name="email" label="Email" errors={fieldErrors?.email}>
+			<TextInput
+				name="email"
+				type="email"
+				size="large"
+				value={form?.data?.email ?? ""}
+				showError={Boolean(fieldErrors?.email?.length)}
+			/>
+		</FormGroup>
+		<FormGroup name="password" label="Password" errors={fieldErrors?.password}>
+			<TextInput
+				name="password"
+				type="password"
+				size="large"
+				value={form?.data?.password ?? ""}
+				showError={Boolean(fieldErrors?.password?.length)}
+			/>
+		</FormGroup>
+		<Button type="submit" label="Login" variant="primary" size="large" fullWidth />
+	</form>
 </div>
