@@ -8,7 +8,7 @@
 	export let required = false;
 </script>
 
-<div class="w-full mb-4">
+<div class="w-full mb-2.5">
 	<div class="inline-flex">
 		<label class={styles.label({ showError: Boolean(errors?.length) })} for={name}>{label}</label>
 		{#if required}

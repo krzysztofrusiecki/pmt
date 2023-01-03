@@ -2,7 +2,7 @@ import { cva } from "cva";
 
 export const styles = {
 	button: cva(
-		"font-medium rounded-small transition-colors disabled:text-secondary-gray-dark disabled:bg-secondary-gray-lighter",
+		"font-medium rounded-sm transition-colors disabled:text-secondary-gray-dark disabled:bg-secondary-gray-lighter",
 		{
 			variants: {
 				variant: {
