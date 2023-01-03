@@ -2,7 +2,7 @@ import { cva } from "cva";
 
 export const styles = {
 	input: cva(
-		"w-full rounded-small bg-white border-[1px] border-secondary-gray-lighter transition-all outline-none placeholder:text-secondary-gray focus-visible:border-primary disabled:border-secondary-gray-lighter disabled:bg-secondary-gray-lighter",
+		"w-full rounded-sm bg-white border-[1px] border-secondary-gray-lighter transition-all outline-none placeholder:text-secondary-gray hover:border-secondary-gray-light focus-visible:border-primary disabled:border-secondary-gray-lighter disabled:bg-secondary-gray-lighter",
 		{
 			variants: {
 				size: {

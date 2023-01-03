@@ -31,9 +31,10 @@ module.exports = {
 			white: "#FFFFFF",
 		},
 		borderRadius: {
-			small: "3px",
-			medium: "5px",
-			large: "8px",
+			sm: "3px",
+			base: "5px",
+			lg: "8px",
+			xl: "12px",
 		},
 		fontSize: {
 			sm: "12px",
