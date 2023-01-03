@@ -43,6 +43,11 @@ module.exports = {
 			xl: "24px",
 			"2xl": "28px",
 			"3xl": "36px",
+			"4xl": "48px",
+		},
+		fontFamily: {
+			inter: "Inter",
+			"nunito-sans": "Nunito Sans",
 		},
 	},
 	plugins: [],
