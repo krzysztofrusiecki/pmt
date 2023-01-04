@@ -29,6 +29,7 @@ module.exports = {
 			},
 			black: "#000000",
 			white: "#FFFFFF",
+			yellow: "#FBFB57",
 		},
 		borderRadius: {
 			sm: "3px",
