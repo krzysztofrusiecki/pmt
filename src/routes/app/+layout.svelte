@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from "$app/stores";
-	import { Avatar, Button, MenuItem, Text } from "$lib/components/atoms";
+	import { Avatar, MenuItem, Text } from "$lib/components/atoms";
 	import { getFullName } from "$lib/utils/user";
 	import type { LayoutData } from "./$types";
 
